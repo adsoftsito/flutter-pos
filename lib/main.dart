@@ -1,14 +1,15 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:innsalud/Sistema_Product.dart';
+import 'package:provider/provider.dart';
+
 import 'LoginPage.dart';
 import 'LogsPage.dart';
-import "SeguimientoPage.dart";
-import "RecomendacionesPage.dart";
+import "MyAppState.dart";
 //import "HistorialPage.dart";
 import "PerfilPage.dart";
-import "MyAppState.dart";
+import "RecomendacionesPage.dart";
+import "SeguimientoPage.dart";
 
 //import 'dart:convert';
 //import 'dart:async';
@@ -138,6 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
         page = LogsPage(); //HistorialPage();
       case 4:
         page = PerfilPage();
+      case 5:
+        page = SistemaProductPage();
 
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -209,6 +212,12 @@ var mainArea = ColoredBox(
                         backgroundColor: Color.fromRGBO(0, 0, 255, 0)
 
                       ),
+
+                      BottomNavigationBarItem(
+                          icon: Icon(Icons.device_hub),
+                          label: 'Sistema',
+                          backgroundColor: Color.fromRGBO(0, 0, 255, 0),
+                        ),
        
                     ],
                     currentIndex: selectedIndex,
@@ -250,6 +259,10 @@ var mainArea = ColoredBox(
                         icon: Icon(Icons.add_box),
                         label: Text('Perfil'),
                       ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.device_hub),
+                        label: Text('Sistema')
+                        ),
                       
                     ],
                     selectedIndex: selectedIndex,

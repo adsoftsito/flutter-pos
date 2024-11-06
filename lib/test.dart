@@ -118,7 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       BottomNavigationBarItem(
                         icon: Icon(Icons.alarm_rounded),
                         label: 'Recomendaciones',
-		      ),
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.device_hub),
+                          label: "Sistema",
+                          )
+          
 		      /* 
                       BottomNavigationBarItem(
                         icon: Icon(Icons.area_chart),
