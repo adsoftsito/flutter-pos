@@ -1,3 +1,4 @@
+import 'package:barcode_scan2/barcode_scan2.dart'; // Verifica esta importación
 import 'package:flutter/material.dart';
 
 class SistemaProductPage extends StatefulWidget {
@@ -91,8 +92,14 @@ class _SistemaProductPageState extends State<SistemaProductPage> {
     });
   }
 
-  void _scanBarcode() {
-    print("Escaneando código de barras...");
+  Future<void> _scanBarcode() async {
+    var result = await BarcodeScanner.scan(); // Aquí se usa el BarcodeScanner del paquete barcode_scan2
+    if (result.rawContent.isNotEmpty) {
+      setState(() {
+        _productCodeController.text = result.rawContent;
+      });
+      _addProduct();
+    }
   }
 
   @override
