@@ -18,22 +18,27 @@ class _SistemaProductPageState extends State<SistemaProductPage> {
     '001': {
       'description': 'Coca Cola',
       'price': 12.0,
-      'image': 'assets/img/cocacola.png',
+      'image': '/assets/img/cocacola.png',
     },
     '002': {
       'description': 'Pepsi',
       'price': 12.0,
-      'image': 'assets/img/pepsi.webp',
+      'image': '/assets/img/pepsi.webp',
     },
     '003': {
       'description': 'Sabritas',
       'price': 15.0,
-      'image': 'assets/img/sabritas.webp',
+      'image': '/assets/img/sabritas.webp',
     },
     '004': {
       'description': 'Boing',
       'price': 10.0,
-      'image': 'assets/img/boing.webp',
+      'image': '/assets/img/boing.webp',
+    },
+    '7500478018970': {
+      'description': 'Cacahuates',
+      'price': 25.0,
+      'image': '/assets/img/cocacola.png',
     },
   };
 
@@ -93,12 +98,18 @@ class _SistemaProductPageState extends State<SistemaProductPage> {
   }
 
   Future<void> _scanBarcode() async {
-    var result = await BarcodeScanner.scan(); // Aquí se usa el BarcodeScanner del paquete barcode_scan2
-    if (result.rawContent.isNotEmpty) {
-      setState(() {
-        _productCodeController.text = result.rawContent;
-      });
-      _addProduct();
+    try {
+      var result = await BarcodeScanner.scan(); // Aquí se usa el BarcodeScanner del paquete barcode_scan2
+      if (result.rawContent.isNotEmpty) {
+        setState(() {
+          _productCodeController.text = result.rawContent;
+        });
+        _addProduct();
+      } else {
+        print('No se escaneó ningún código');
+      }
+    } catch (e) {
+      print('Error al escanear el código: $e');
     }
   }
 
