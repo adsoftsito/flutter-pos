@@ -1,6 +1,5 @@
 //import 'dart:convert';
 
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -8,7 +7,6 @@ import 'package:innsalud/main.dart';
 //import 'package:innsalud/main.dart';
 import 'package:provider/provider.dart';
 import "MyAppState.dart";
-import 'LoginResponse.dart';
 
 String loginPostMutation = """
 mutation TokenAuth(\$username : String!,  \$password : String!) {
