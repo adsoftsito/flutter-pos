@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:innsalud/main.dart';
 //import 'package:innsalud/main.dart';
 import 'package:provider/provider.dart';
 import "MyAppState.dart";
@@ -141,7 +140,7 @@ Future<QueryResult> _login() async {
 
                     
                     
-                    print(error?.graphqlErrors[0].message);
+                    print(error.graphqlErrors[0].message);
                   },
 
                 ),

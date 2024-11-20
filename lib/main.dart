@@ -1,14 +1,14 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'LoginPage.dart';
 import 'LogsPage.dart';
-import "SeguimientoPage.dart";
 import "RecomendacionesPage.dart";
 //import "HistorialPage.dart";
 import "PerfilPage.dart";
 import "MyAppState.dart";
+import 'SeguimientoPage.dart' as seguimiento;
+
 
 //import 'dart:convert';
 //import 'dart:async';
@@ -128,20 +128,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Widget page;
     switch (selectedIndex) {
-      case 0:
-        page = LoginPage();
-      case 1:
-        page =  SeguimientoPage();
-      case 2:
-        page = RecomendacionesPage();
-      case 3:
-        page = LogsPage(); //HistorialPage();
-      case 4:
-        page = PerfilPage();
+   case 0:
+     page = LoginPage();
+     break;
+   case 1:
+     page = seguimiento.SeguimientoPage();
+     break;
+   case 2:
+     page = RecomendacionesPage();
+     break;
+   case 3:
+     page = LogsPage();
+     break;
+   case 4:
+     page = PerfilPage();
+     break;
+   default:
+     throw UnimplementedError('no widget for $selectedIndex');
+ }
 
-      default:
-        throw UnimplementedError('no widget for $selectedIndex');
-    }
 
     // The container for the current page, with its background color
     // and subtle switching animation.
